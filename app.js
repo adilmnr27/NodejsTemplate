@@ -17,7 +17,22 @@ const portNumber = process.env.port || 8081; //if port has been specified in the
 const student = require('./routes/studentRoutes.js'); //getting the router object from studentRoutes
 const teacher = require('./routes/teacherRoutes.js');// getting the router object from teacherRoutes
 const bodyParser = require('body-parser');
+const cors = require("cors"); //to solve the  cross-orgins problem.
 //app.use(express.json()); // To convert the data coming into json.
+
+
+// Enable CORS preflight across the board.
+app.options("*", cors());
+app.use(cors());
+
+// Added headers
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 
 /*
