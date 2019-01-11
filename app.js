@@ -4,9 +4,11 @@
 /*------You can edit the port number by editing the const variable portNumber------*/
 
 // we will use the require function to load the module
-const express = require("express") //express is the name of module which returns a function .
+const express = require('express') //express is the name of module which returns a function .
 const app = express(); // object created of type Express
-const portNumber = 8081;
+const portNumber = process.env.port || 8081; //if port has been specified in the environment it will pick up that
+const student = require('./routes/studentRoutes.js'); //getting the router object from studentRoutes
+const teacher = require('./routes/teacherRoutes.js');// getting the router object from teacherRoutes
 
 /* Methods which can be used
 app.get();
@@ -14,6 +16,11 @@ app.post();
 app.put();
 app.delete();
 */
+
+
+//Basically we are telling that for the routes starting with the first argument url, use the second argument router
+app.use('/api/student', student);
+app.use('/api/teacher', teacher);
 
 
 /*
