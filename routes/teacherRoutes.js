@@ -1,13 +1,14 @@
+/*-------------For Teacher Routes ie. routes which start with /api/teacher---------*/
 const express = require('express');
 const router = express.Router();
 
-//indirectly the url is 8081:/api/teacher/login
+//indirectly the url is portNumber:/api/teacher/login
 router.get('/login', (req, res) => {
     res.send("Teacher logged in")
 
 });
 
-//indirectly the url is 8081:/api/teacher/
+//indirectly the url is portNumber:/api/teacher/
 router.get('/', (req, res) => {
     res.send("teacher view");
 })
