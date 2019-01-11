@@ -1,6 +1,7 @@
 /*-------------For Teacher Routes ie. routes which start with /api/teacher---------*/
+"use strict"; 
 const express = require('express');
-const router = express.Router();
+const router = express.Router(); 
 
 //indirectly the url is portNumber:/api/teacher/login
 router.get('/login', (req, res) => {
@@ -11,6 +12,13 @@ router.get('/login', (req, res) => {
 //indirectly the url is portNumber:/api/teacher/
 router.get('/', (req, res) => {
     res.send("teacher view");
+})
+
+
+//Post Request
+router.post('/signup',(req,res)=>{
+    console.log(req.body);
+    res.send("Your details are + " + JSON.stringify(req.body));
 })
 
 

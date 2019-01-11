@@ -4,6 +4,7 @@
   "description": "A normal template with express module",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4"
   },
   "devDependencies": {},

@@ -3,12 +3,33 @@
 /*------Start the application by the command 'node app.js'-------------------*/
 /*------You can edit the port number by editing the const variable portNumber------*/
 
+
+/*
+*The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
+*With strict mode, you can not, for example, use undeclared variables.
+*/
+"use strict"; 
+
 // we will use the require function to load the module
 const express = require('express') //express is the name of module which returns a function .
 const app = express(); // object created of type Express
 const portNumber = process.env.port || 8081; //if port has been specified in the environment it will pick up that number or else the port defined
 const student = require('./routes/studentRoutes.js'); //getting the router object from studentRoutes
 const teacher = require('./routes/teacherRoutes.js');// getting the router object from teacherRoutes
+const bodyParser = require('body-parser');
+//app.use(express.json()); // To convert the data coming into json.
+
+
+/*
+*To learn how body parser works follow the below link:-
+https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90 
+*It is used for parsing json.
+*/
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
 
 /* Methods which can be used
 app.get();

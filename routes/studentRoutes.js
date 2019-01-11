@@ -1,4 +1,5 @@
 /*-------------For Student Routes ie. routes which start with /api/student---------*/
+"use strict";
 const express = require('express')
 const router = express.Router();
 
