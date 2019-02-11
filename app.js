@@ -8,7 +8,12 @@
 *The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
 *With strict mode, you can not, for example, use undeclared variables.
 */
-"use strict"; 
+"use strict";
+
+//Reading the environment variables
+// https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786
+const dotenv = require('dotenv');
+dotenv.config();
 
 // we will use the require function to load the module
 const express = require('express') //express is the name of module which returns a function .
@@ -42,7 +47,7 @@ https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
 */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+    extended: false
 }));
 
 
